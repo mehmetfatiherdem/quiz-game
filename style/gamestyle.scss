@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+:root{
+    --primary-color: rgb(12, 28, 54);
+   
+}
+
+body{
+    margin: 0;
+    background: var(--primary-color);
+    font-family: 'Squada One';
+
+}
+
+
+
+
+.game-screen{
+    background: white;
+    border-radius: 5em;
+    width: 750px;
+    height: 500px;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+}
+    
+    .progress{
+        text-align: left;
+        margin: 50px auto auto 50px;
+    }
+        
+        .question-num{
+            margin: auto auto auto 35px;
+            font-weight: 200;
+            font-size: 25px;
+        }
+
+        .progressBar{
+        width: 12em;
+        height: 1.5em;
+        border: 0.1em solid black;
+        margin-top: 15px;
+        background-color: #fff;
+        border-radius: 5em;
+        }
+
+        #progressBarFull {
+            height: 1.5em;
+            background-color: var(--primary-color);
+            border-radius: 5em;
+            width: 0%;
+        }
+
+        .top-info{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .next-btn{
+            margin: 25px 30px auto auto;
+            visibility: visible;
+            cursor: pointer;
+            
+        }
+
+        .next-text{
+            font-size: 30px;
+            display: inline-block;
+        }
+
+        .next-arrow{
+            width: 25px;
+            height: 20px;
+            
+        }
+
+    
+
+    .question{
+            text-align: left;
+            margin: auto auto auto 50px;
+    }
+
+        p.question-text{
+            font-size: 35px;
+        }
+    
+
+    
+        
+
+        .choice{
+            background-color: white;
+            text-align: left;
+            width: 40em;
+            height: 2.5em;
+            border-radius: 5em;
+            border: 0.1em solid black;
+            display: block;
+            left: 0;
+            margin: 10px auto auto 50px;
+            cursor: pointer;
+        }
+            
+
+            .opt{
+                margin: 0.12em auto auto 10px;
+                font-size: 30px;
+            }
+
+
+        
+
+        .choice:hover{
+            transform: scale(1.1) perspective(1px);
+        }
+        
+        .correct{
+            background-color: green;
+        }
+
+        .wrong{
+            background-color: red;
+        }
+        
+        .hide{
+            display: none;
+        }
+
+     

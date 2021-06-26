@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+:root{
+    --primary-color: rgb(12, 28, 54);
+   
+}
+
+body{
+    margin: 0;
+    background: var(--primary-color);
+    font-family: 'Squada One';
+
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+
+button{
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    border-radius: 5em;
+    font-size: 45px;
+    font-weight: 300;
+    font-family: 'Squada One';
+    cursor: pointer;
+    
+}
+
+button:hover{
+   transform: scale(1.1) perspective(1px)
+}
+
+button:active {
+    vertical-align: top;
+    padding: 8px 13px 6px;
+}
+
+
+.index-screen{
+    background: white;
+    border-radius: 5em;
+    width: 750px;
+    height: 500px;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    
+   
+
+    button{
+        width: 250px;
+        height: 100px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    button.newgame-btn{
+        margin: 150px auto auto auto;
+       
+    }
+    button.highscores-btn{
+        display: block;
+        margin: 15px auto ;
+
+    }
+
+}
+
+
