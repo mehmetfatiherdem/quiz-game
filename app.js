@@ -99,90 +99,118 @@ const questions = [
         ]
     }
 
-];
+]
 
 
-const questText = document.getElementById("question-cta");
+const questText = document.getElementById("question-cta")
 
-const choiceContainer = document.getElementById("choice-container");
+const choiceContainer = document.getElementById("choice-container")
 
-const nextBtn = document.getElementById("next-cta");
+const nextBtn = document.getElementById("next-cta")
 
-const progressBar = document.getElementById("progressBarFull");
+const progressBar = document.getElementById("progressBarFull")
 
-const questProgress = document.getElementById("question-info");
+const questProgress = document.getElementById("question-info")
 
+const scoreInfo = document.getElementById("score-cta")
 
-let currentQuestion;
+let currentQuestion
 
-nextBtn.addEventListener("click", nextQuest);
+let score
+
+nextBtn.addEventListener("click", nextQuest)
+
+function showScore() {
+   
+    removeElement(scoreInfo)
+    const scoreText = document.createElement("p")
+    scoreText.innerText = score
+    scoreInfo.appendChild(scoreText)
+    
+    
+}
 
 function nextQuest(){
     if(currentQuestion<questions.length-1){
-      currentQuestion++;
-      clearState();
-      getQuestion();
+        console.log(score)
+      currentQuestion++
+      clearState()
+      getQuestion()
     }else{
-      clearState();
-      document.location.href = "highscores.html";
+      clearState()
+      document.location.href = "highscores.html"
     }
     
 }
 
+function removeElement(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
+}
+
 function clearState(){
-    nextBtn.classList.add("hide");
-    while(choiceContainer.firstChild) {
-        choiceContainer.removeChild(choiceContainer.firstChild);
-      }
+    nextBtn.classList.add("hide")
+    removeElement(choiceContainer)
+   
 
 }
 
 
 function progress(){
-    questProgress.innerText = "Question " + (currentQuestion+1) + " of " + questions.length;
-    let width = (currentQuestion+1)*100/questions.length;
-    progressBar.style.width = width + "%";
+    questProgress.innerText = "Question " + (currentQuestion+1) + " of " + questions.length
+    let width = (currentQuestion+1)*100/questions.length
+    progressBar.style.width = width + "%"
 }
 
 function getQuestion(){
-    progress();
-    clearState();
-    questText.innerText = questions[currentQuestion].question;
+    progress()
+    clearState()
+    questText.innerText = questions[currentQuestion].question
 
     questions[currentQuestion].choices.forEach(choice => {
-        const btn = document.createElement("div");
-        const choiceText = document.createElement("p");
-        choiceText.innerText = choice.choice;
+        const btn = document.createElement("div")
+        const choiceText = document.createElement("p")
+        choiceText.innerText = choice.choice
       
-        choiceText.classList.add("opt");
-        btn.classList.add("choice");
+        choiceText.classList.add("opt")
+        btn.classList.add("choice")
 
-        btn.appendChild(choiceText);
+        btn.appendChild(choiceText)
 
         btn.addEventListener("click", ()=>{
 
           if(choice.isCorrect){
-            btn.classList.add("correct");
+            btn.classList.add("correct")
+            score+=10
+            console.log(score)
+            showScore()
           }else{
-            btn.classList.add("wrong");
+            btn.classList.add("wrong")
+            if(score>0)
+               
+                console.log(score)
           }
-          nextBtn.classList.remove("hide");
-        });
+          nextBtn.classList.remove("hide")
 
           
-          choiceContainer.appendChild(btn);
-    });
+        })
+        
+          
+          choiceContainer.appendChild(btn)
+    })
     
 
 }
 
 function start(){
-    currentQuestion = 0;
-    getQuestion();
+    currentQuestion = 0
+    score = 0
+    getQuestion()
 
 }
 
-start();
+start()
 
 
 

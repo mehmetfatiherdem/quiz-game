@@ -60,6 +60,10 @@ body {
           justify-content: space-between;
 }
 
+.score-info {
+  margin: auto auto auto 320px;
+}
+
 .next-btn {
   margin: 25px 30px auto auto;
   visibility: visible;
